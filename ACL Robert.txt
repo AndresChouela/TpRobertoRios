@@ -1,0 +1,11 @@
+Router Caba 1:
+access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.2 eq 53 //dns server
+access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 20 //ftp
+access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 21
+access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 20
+access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 80 //http https
+access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 443
+access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 25  //mail
+access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 587
+access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 110
+access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 
