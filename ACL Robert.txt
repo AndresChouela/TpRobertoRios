@@ -1,11 +1,184 @@
 Router Caba 1:
-access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.2 eq 53 //dns server
-access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 20 //ftp
-access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 21
-access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 20
-access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 80 //http https
-access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 443
-access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 25  //mail
-access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 587
-access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 110
-access-list 101 permit tcp 10.0.3.0 0.0.0.255 any //gerencia
+access-list 101 permit tcp any host 10.0.6.2 eq 53 //dns server
+access-list 101 permit tcp any host 10.0.6.3 eq 20 //ftp
+access-list 101 permit tcp any host 10.0.6.3 eq 20
+access-list 101 permit tcp any host 10.0.6.3 eq 80 //http https
+access-list 101 permit tcp any host 10.0.6.3 eq 443
+access-list 101 permit tcp any host 10.0.6.4 eq 25  //mail
+access-list 101 permit tcp any host 10.0.6.4 eq 587
+access-list 101 permit tcp any host 10.0.6.4 eq 110
+access-list 101 deny tcp any host 11.0.7.2 eq 80 //denegar otros servidores
+access-list 101 deny tcp any host 11.0.7.2 eq 443
+access-list 101 deny tcp any 12.0.6.2 3.0.0.0 eq 80
+access-list 101 deny tcp any 12.0.6.2 3.0.0.0 eq 443
+access-list 101 deny tcp any 16.0.6.2 1.0.0.0 eq 80
+access-list 101 deny tcp any 16.0.6.2 1.0.0.0 eq 443
+access-list 101 deny tcp any host 18.0.6.2 eq 80
+access-list 101 deny tcp any host 18.0.6.2 eq 443
+access-list 101 permit tcp 12.0.3.0 0.0.0.255 any //gerencia
+
+Router Caba 2:
+access-list 102 permit tcp any host 10.0.6.2 eq 53 //dns server
+access-list 102 permit tcp any host 10.0.6.3 eq 20 //ftp
+access-list 102 permit tcp any host 10.0.6.3 eq 20
+access-list 102 permit tcp any host 11.0.6.2 eq 80 //http https
+access-list 102 permit tcp any host 11.0.6.2 eq 443
+access-list 102 permit tcp any host 10.0.6.4 eq 25  //mail
+access-list 102 permit tcp any host 10.0.6.4 eq 587
+access-list 102 permit tcp any host 10.0.6.4 eq 110
+access-list 102 deny tcp any host 10.0.6.3 eq 80 //denegar otros servidores
+access-list 102 deny tcp any host 10.0.6.3 eq 443
+access-list 102 deny tcp any 12.0.6.2 3.0.0.0 eq 80
+access-list 102 deny tcp any 12.0.6.2 3.0.0.0 eq 443
+access-list 102 deny tcp any 16.0.6.2 1.0.0.0 eq 80
+access-list 102 deny tcp any 16.0.6.2 1.0.0.0 eq 443
+access-list 102 deny tcp any host 18.0.6.2 eq 80
+access-list 102 deny tcp any host 18.0.6.2 eq 443
+
+
+Router La plata:
+access-list 103 permit tcp any host 10.0.6.2 eq 53 //dns server
+access-list 103 permit tcp any host 10.0.6.3 eq 20 //ftp
+access-list 103 permit tcp any host 10.0.6.3 eq 20
+access-list 103 permit tcp any host 12.0.6.3 eq 80 //http https
+access-list 103 permit tcp any host 12.0.6.3 eq 443
+access-list 103 permit tcp any host 10.0.6.4 eq 25  //mail
+access-list 103 permit tcp any host 10.0.6.4 eq 587
+access-list 103 permit tcp any host 10.0.6.4 eq 110
+access-list 103 deny tcp any host 10.0.6.3 eq 80 //denegar otros servidores
+access-list 103 deny tcp any host 10.0.6.3 eq 443
+access-list 103 deny tcp any host 11.0.7.2 eq 443
+access-list 103 deny tcp any host 11.0.6.2 eq 443
+access-list 103 deny tcp any 12.0.6.2 3.0.0.0 eq 80
+access-list 103 deny tcp any 12.0.6.2 3.0.0.0 eq 443
+access-list 103 deny tcp any 16.0.6.2 1.0.0.0 eq 80
+access-list 103 deny tcp any 16.0.6.2 1.0.0.0 eq 443
+access-list 103 deny tcp any host 18.0.6.2 eq 80
+access-list 103 deny tcp any host 18.0.6.2 eq 443
+access-list 103 permit tcp 12.0.3.0 0.0.0.255 any //gerencia
+
+Router Rosario:
+access-list 104 permit tcp any host 10.0.6.2 eq 53 //dns server
+access-list 104 permit tcp any host 10.0.6.3 eq 20 //ftp
+access-list 104 permit tcp any host 10.0.6.3 eq 20
+access-list 104 permit tcp any host 13.0.6.3 eq 80 //http https
+access-list 104 permit tcp any host 13.0.6.3 eq 443
+access-list 104 permit tcp any host 10.0.6.4 eq 25  //mail
+access-list 104 permit tcp any host 10.0.6.4 eq 587
+access-list 104 permit tcp any host 10.0.6.4 eq 110
+access-list 104 deny tcp any host 10.0.6.3 eq 80 //denegar otros servidores
+access-list 104 deny tcp any host 10.0.6.3 eq 443
+access-list 104 deny tcp any host 11.0.7.2 eq 443
+access-list 104 deny tcp any host 11.0.6.2 eq 443
+access-list 104 deny tcp any 12.0.6.2 3.0.0.0 eq 80
+access-list 104 deny tcp any 12.0.6.2 3.0.0.0 eq 443
+access-list 104 deny tcp any 16.0.6.2 1.0.0.0 eq 80
+access-list 104 deny tcp any 16.0.6.2 1.0.0.0 eq 443
+access-list 104 deny tcp any host 18.0.6.2 eq 80
+access-list 104 deny tcp any host 18.0.6.2 eq 443
+access-list 104 permit tcp 13.0.3.0 0.0.0.255 any //gerencia
+
+Router santa fe:
+access-list 105 permit tcp any host 10.0.6.2 eq 53 //dns server
+access-list 105 permit tcp any host 10.0.6.3 eq 20 //ftp
+access-list 105 permit tcp any host 10.0.6.3 eq 20
+access-list 105 permit tcp any host 14.0.6.3 eq 80 //http https
+access-list 105 permit tcp any host 14.0.6.3 eq 443
+access-list 105 permit tcp any host 10.0.6.4 eq 25  //mail
+access-list 105 permit tcp any host 10.0.6.4 eq 587
+access-list 105 permit tcp any host 10.0.6.4 eq 110
+access-list 105 deny tcp any host 10.0.6.3 eq 80 //denegar otros servidores
+access-list 105 deny tcp any host 10.0.6.3 eq 443
+access-list 105 deny tcp any host 11.0.7.2 eq 443
+access-list 105 deny tcp any host 11.0.6.2 eq 443
+access-list 105 deny tcp any 12.0.6.2 3.0.0.0 eq 80
+access-list 105 deny tcp any 12.0.6.2 3.0.0.0 eq 443
+access-list 105 deny tcp any 16.0.6.2 1.0.0.0 eq 80
+access-list 105 deny tcp any 16.0.6.2 1.0.0.0 eq 443
+access-list 105 deny tcp any host 18.0.6.2 eq 80
+access-list 105 deny tcp any host 18.0.6.2 eq 443
+access-list 105 permit tcp 14.0.3.0 0.0.0.255 any //gerencia
+
+Router cordoba
+access-list 106 permit tcp any host 10.0.6.2 eq 53 //dns server
+access-list 106 permit tcp any host 10.0.6.3 eq 20 //ftp
+access-list 106 permit tcp any host 10.0.6.3 eq 20
+access-list 106 permit tcp any host 15.0.6.3 eq 80 //http https
+access-list 106 permit tcp any host 15.0.6.3 eq 443
+access-list 106 permit tcp any host 10.0.6.4 eq 25  //mail
+access-list 106 permit tcp any host 10.0.6.4 eq 587
+access-list 106 permit tcp any host 10.0.6.4 eq 110
+access-list 106 deny tcp any host 10.0.6.3 eq 80 //denegar otros servidores
+access-list 106 deny tcp any host 10.0.6.3 eq 443
+access-list 106 deny tcp any host 11.0.7.2 eq 443
+access-list 106 deny tcp any host 11.0.6.2 eq 443
+access-list 106 deny tcp any 12.0.6.2 3.0.0.0 eq 80
+access-list 106 deny tcp any 12.0.6.2 3.0.0.0 eq 443
+access-list 106 deny tcp any 16.0.6.2 1.0.0.0 eq 80
+access-list 106 deny tcp any 16.0.6.2 1.0.0.0 eq 443
+access-list 106 deny tcp any host 18.0.6.2 eq 80
+access-list 106 deny tcp any host 18.0.6.2 eq 443
+access-list 106 permit tcp 15.0.3.0 0.0.0.255 any //gerencia
+
+Router San miguel de tucuman
+access-list 107 permit tcp any host 10.0.6.2 eq 53 //dns server
+access-list 107 permit tcp any host 10.0.6.3 eq 20 //ftp
+access-list 107 permit tcp any host 10.0.6.3 eq 20
+access-list 107 permit tcp any host 16.0.6.3 eq 80 //http https
+access-list 107 permit tcp any host 16.0.6.3 eq 443
+access-list 107 permit tcp any host 10.0.6.4 eq 25  //mail
+access-list 107 permit tcp any host 10.0.6.4 eq 587
+access-list 107 permit tcp any host 10.0.6.4 eq 110
+access-list 107 deny tcp any host 10.0.6.3 eq 80 //denegar otros servidores
+access-list 107 deny tcp any host 10.0.6.3 eq 443
+access-list 107 deny tcp any host 11.0.7.2 eq 443
+access-list 107 deny tcp any host 11.0.6.2 eq 443
+access-list 107 deny tcp any 12.0.6.2 3.0.0.0 eq 80
+access-list 107 deny tcp any 12.0.6.2 3.0.0.0 eq 443
+access-list 107 deny tcp any 16.0.6.2 1.0.0.0 eq 80
+access-list 107 deny tcp any 16.0.6.2 1.0.0.0 eq 443
+access-list 107 deny tcp any host 18.0.6.2 eq 80
+access-list 107 deny tcp any host 18.0.6.2 eq 443
+access-list 107 permit tcp 16.0.3.0 0.0.0.255 any //gerencia
+
+Router salta capital:
+access-list 108 permit tcp any host 10.0.6.2 eq 53 //dns server
+access-list 108 permit tcp any host 10.0.6.3 eq 20 //ftp
+access-list 108 permit tcp any host 10.0.6.3 eq 20
+access-list 108 permit tcp any host 17.0.6.3 eq 80 //http https
+access-list 108 permit tcp any host 17.0.6.3 eq 443
+access-list 108 permit tcp any host 10.0.6.4 eq 25  //mail
+access-list 108 permit tcp any host 10.0.6.4 eq 587
+access-list 108 permit tcp any host 10.0.6.4 eq 110
+access-list 108 deny tcp any host 10.0.6.3 eq 80 //denegar otros servidores
+access-list 108 deny tcp any host 10.0.6.3 eq 443
+access-list 108 deny tcp any host 11.0.7.2 eq 443
+access-list 108 deny tcp any host 11.0.6.2 eq 443
+access-list 108 deny tcp any 12.0.6.2 3.0.0.0 eq 80
+access-list 108 deny tcp any 12.0.6.2 3.0.0.0 eq 443
+access-list 108 deny tcp any 16.0.6.2 1.0.0.0 eq 80
+access-list 108 deny tcp any 16.0.6.2 1.0.0.0 eq 443
+access-list 108 deny tcp any host 18.0.6.2 eq 80
+access-list 108 deny tcp any host 18.0.6.2 eq 443
+access-list 108 permit tcp 17.0.3.0 0.0.0.255 any //gerencia
+
+Router Comodoro rivadavia:
+access-list 109 permit tcp any host 10.0.6.2 eq 53 //dns server
+access-list 109 permit tcp any host 10.0.6.3 eq 20 //ftp
+access-list 109 permit tcp any host 10.0.6.3 eq 20
+access-list 109 permit tcp any host 18.0.6.3 eq 80 //http https
+access-list 109 permit tcp any host 18.0.6.3 eq 443
+access-list 109 permit tcp any host 10.0.6.4 eq 25  //mail
+access-list 109 permit tcp any host 10.0.6.4 eq 587
+access-list 109 permit tcp any host 10.0.6.4 eq 110
+access-list 109 deny tcp any host 10.0.6.3 eq 80 //denegar otros servidores
+access-list 109 deny tcp any host 10.0.6.3 eq 443
+access-list 109 deny tcp any host 11.0.7.2 eq 443
+access-list 109 deny tcp any host 11.0.6.2 eq 443
+access-list 109 deny tcp any 12.0.6.2 3.0.0.0 eq 80
+access-list 109 deny tcp any 12.0.6.2 3.0.0.0 eq 443
+access-list 109 deny tcp any 16.0.6.2 1.0.0.0 eq 80
+access-list 109 deny tcp any 16.0.6.2 1.0.0.0 eq 443
+access-list 109 deny tcp any host 18.0.6.2 eq 80
+access-list 109 deny tcp any host 18.0.6.2 eq 443
+access-list 109 permit tcp 18.0.3.0 0.0.0.255 any //gerencia
