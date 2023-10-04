@@ -8,4 +8,4 @@ access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.3 eq 443
 access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 25  //mail
 access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 587
 access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 110
-access-list 101 permit tcp 10.0.0.0 0.0.5.255 host 10.0.6.4 eq 
+access-list 101 permit tcp 10.0.3.0 0.0.0.255 any //gerencia
